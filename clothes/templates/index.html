@@ -1,0 +1,2821 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    {% load static %}
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Z / Q</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'css/slick.css' %}">
+        <link rel="stylesheet" href="{% static 'css/slick-theme.css' %}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.8.2/jquery.modal.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.8.2/jquery.modal.min.css" />
+        <link rel="stylesheet" href="{% static 'css/media.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <style>
+            html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+a{
+    color:black;
+    text-decoration: none;
+}
+a:hover{
+    color:black;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+    line-height: 1;
+    font-family: 'Montserrat', sans-serif;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+.container{
+    max-width:1260px;
+    margin:0 auto;
+}
+/*HEADER*/
+.header{
+    border-bottom: 1px solid #dadada;
+}
+.header__wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 13px;
+}
+.header__nav ul{
+    display: flex;
+}
+.header__wrapper-left{
+    display: flex;
+    align-items: center;
+}
+.header__location{
+    display: flex;
+    align-items: center;
+}
+.header__location-img {
+    margin-right: 10px;
+}
+.header__location-img img{
+    width:20px;
+}
+.header__nav a{
+    color:#000;
+    text-decoration:none;
+}
+.header__nav li{
+    margin-right: 30px;
+}
+.header__nav li:last-child{
+    margin-right: 0;
+}
+.header__location{
+    margin-right: 30px;
+}
+.header__location-text p{
+    font-weight:600;
+    text-decoration: underline;
+}
+.header__phone p{
+    font-weight: 600;
+}
+.header__nav a:hover{
+    font-weight: 600;
+    border-bottom: 2px solid #000;
+    padding-bottom:3px;
+}
+.menu__wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:10px;
+}
+.menu__sales{
+    display: flex;
+}
+.menu__korzina img{
+    width:20px;
+}
+.menu__img{
+    text-align: center;
+    width:100%;
+    margin-bottom: 20px;
+}
+.menu__img img{
+    margin-left:12%;
+}
+.menu__sales p{
+    font-size: 15px;
+    font-weight: 700;
+}
+.menu__sales-ru{
+    margin-right: 40px;
+}
+.menu__sales-eng p {
+    color:#E74B38;
+}
+.menu__nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+.nav{
+    display: flex;
+}
+.menu__nav a{
+    color:#000;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+}
+.menu-item{
+    margin-left: 20px;
+    text-align: centera;
+}
+.menu__nav-input{
+    position: relative;
+    top:10px;
+}
+.menu__nav input{
+    border:none;
+    outline: none;
+    border-bottom: 1px solid #dadada;
+    padding-left:10px;
+}
+.menu__nav-input img{
+    width: 20px;
+    margin-right: 10px;
+}
+.slider{
+    margin-top: 50px;
+    outline: none;
+}
+
+.slider__item img{
+    outline: none;
+    width:100%;
+    height:50vh;
+}
+.actual__slider img, .best__slider img{
+    width:80%;
+    text-align: center;
+    margin:0 auto;
+}
+.actual__slider-item{
+    outline: none;
+}
+.actual__title{
+    margin-bottom: 10px;
+}
+.actual__titles{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 10%;
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    color:#ccc;
+    text-align: center;
+}
+.actual__title{
+    margin-right: 20px;
+}
+.actual__slider-item-text{
+    font-weight: 500;
+    margin-top: 30px;
+    text-align: center;
+}
+.actual__titles .active{
+    color:#000
+}
+.actual__slider-item img{
+    transition: all 0.5s ease;
+}
+.actual__slider-item img:hover{
+    transform: scale(1.1);
+}
+.collection__title{
+    text-align: center;
+    color:#dadada;
+    font-size: 55px;
+    font-weight: 700;
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+.collection__text{
+    text-align: center;
+    max-width:50%;
+    margin:0 auto;
+    margin-bottom: 30px;
+}
+.collections__items{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.collections__item img{
+    width:350px;
+    transition: all 0.5s ease;
+}
+.collections__item{
+    margin-bottom: 30px;
+}
+.collections__item img:hover{
+    transform: scale(0.9);
+    border:3px solid gold;
+}
+.collections__all{
+    text-align: center;
+    margin-bottom: 30px;
+    transition: all 0.5s ease;
+}
+.best{
+    margin-top: 50px;
+}
+.best__title{
+    text-align: center;
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 60px;
+}
+.best__slider .actual__slider-item-text{
+    text-align: center;
+    margin-left: 0;
+}
+.best__slider .actual__slider-item-img{
+    transition: all 0.5s ease;
+}
+.best__slider-item{
+    outline: none;
+}
+.all{
+    margin-top: 60px;
+}
+.all__columns{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.all__column{
+    margin-bottom: 20px;
+}
+.all__column__title{
+    font-size: 14px;
+    font-weight: 700;
+    border-bottom: 1px solid #000;
+    padding-bottom: 10px;
+}
+.all__column-text{
+    font-size: 13px;
+    color:#595959;
+    margin-top: 10px;
+    transition: all 0.5s ease;
+}
+.all__column-text:hover{
+    color:#000;
+    font-weight: 500;
+}
+.all{
+    margin-bottom: 30px;
+}
+.footer{
+    border-top:1px solid #dadada;
+}
+.footer img{
+    width:18px;
+}
+.footer__wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30px;
+}
+.footer__co{
+    display: flex;
+    margin-bottom: 30px;
+}
+.footer__co img{
+    width:10px;
+    margin-right: 10px;
+}
+.footer__phone{
+    margin-bottom: 20px;
+}
+.footer__phone a{
+    font-size: 14px;
+    color:#000;
+    text-decoration: none;
+}
+.footer__co-text{
+    color:#7f7f7f;
+    font-size: 14px;
+}
+.footer__socials{
+    display: flex;
+    margin-bottom:28px;
+}
+.footer__social-insta{
+    margin-right: 10px;
+}
+.submenu {
+    overflow: hidden;
+    opacity: 0;
+    height:0;
+    transition: all 0.5s ease-in;
+    margin-top: 5px;
+}
+.submenu li{
+    text-align: center;
+    cursor: pointer;
+    background:white;
+    padding:5px 0;
+    margin-bottom: 1px;
+    font-size: 14px;
+    color:#595959;
+    font-weight: 400;
+    transition: all 0.2s ease-in;
+}
+.submenu a{
+    font-weight: 400;
+}
+.submenu li a:hover{
+    color:#000;
+    font-weight: 700;
+}
+
+.burger__nav {
+    position: absolute;
+    right: 36px;
+    display: block;
+    z-index:13042304230;
+}
+.burger__menu{
+    display: none;
+    overflow: auto;
+}
+.burger__menu li {
+    list-style: none;
+    font-size: 16px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+.burger__menu a{
+    color:#000;
+    text-decoration: none;
+}
+.nav{
+    height:0px;
+    z-index:1;
+}
+.slick-prev{
+    left:10px;
+    z-index:1;
+}
+.slick-next{
+    right:10px;
+}
+#first{
+    display: none;
+}
+#bril, #wed{
+    opacity: 0;
+    height:0;
+}
+.jewellery__nav ul, .brilliant__nav ul, .wedding__nav ul{
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-around;
+}
+.jewellery__nav li, .brilliant__nav li, .wedding__nav li{
+    color:#ccc;
+    font-weight: 700;
+    cursor:pointer;
+}
+.jewellery__nav .active, .brilliant__nav .active, .wedding__nav .active{
+    color:#000;
+}
+.jewellery__items{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+.jewellery__item{
+    width:300px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.jewellery__item-img img{
+    max-width:200px;
+    margin-left: 30px;
+}
+.jewellery__item-img{
+    margin-bottom: 15px;
+}
+.jewellery__item-cost{
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 24px;
+}
+.jewellery__item-drop{
+    opacity: 0;
+}
+.jewellery__item-name{
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+.jewellery__about{
+    display: flex;
+    justify-content: center;
+    text-decoration: underline;
+    font-size: 14px;
+    color:#7f7f7f;
+}
+.jewellery__about-material{
+    margin-right: 15px;
+}
+.jewellery__about-weight{
+    margin-left: 15px;
+    margin-right: 10px;
+}
+.jewellery__item-select{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.jewellery__item-select p{
+    margin-right: 10px;
+}
+
+.jewellery__item select{
+    margin-bottom: 15px;
+    padding:5px;
+    margin-top:15px;
+}
+.jewellery__item-btn input{
+    background:#000;
+    text-align: center;
+    color:#fff;
+    padding:15px 50px;
+    border:none;
+    outline: none;
+}
+.jewellery__item-drop{
+    transition: all 0.5s ease;
+}
+.jewellery__item:hover .jewellery__item-drop{
+    opacity: 1;
+}
+.jewellery__item:hover .jewellery__item-favoutite{
+    opacity: 1;
+}
+
+.jewellery__item:hover{
+    border:1px solid #ccc;
+    padding:0px 10px 10px 10px;
+}
+.content {
+    display: none;
+}
+.content.is-active {
+    display: block;
+}
+/*PRIEMIUM*/
+.infinity{
+    padding:100px 0;
+}
+.infinity__wrapper{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.infinity__img img{
+    max-width:740px;
+}
+.infinity__more-img img{
+    width:31px;
+}
+.infinity__title{
+    color:#010101;
+    font-size: 30px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: 5.2px;
+}
+.infinity__text, .exclusive__text{
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 50px;
+}
+.infinity__more{
+    display: flex;
+    align-items: center;
+}
+.infinity__more-text{
+    font-size: 13px;
+    margin-right: 14px;
+    letter-spacing: .52px;
+    font-weight: 700;
+}
+.brilliant__wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.brilliant__img img{
+    width:740px;
+}
+.brilliant__title{
+    color:#010101;
+    font-size: 30px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: 5.2px;
+}
+.brilliant__content{
+    margin-left: 15px;
+}
+.brilliant__content2{
+    display: none;
+}
+.hits{
+    margin-top: 150px;
+}
+.hits__title{
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.hits__text{
+    max-width:600px;
+    font-size: 16px;
+    margin-bottom: 150px;
+}
+.hits__slider-text{
+    text-align: center;
+    margin-top: 10px;
+}
+.hits__slider-item{
+    max-width:369px;
+    margin-right:50px;
+}
+.hits__slider img{
+    max-width:369px;
+}
+.prem__columns{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.prem img{
+    width:300px;
+}
+.hits{
+    margin-bottom:200px;
+}
+.hits .slick-dots{
+    bottom:-70px;
+}
+.pre__item{
+    text-align: center;
+}
+.pre__item-img{
+    margin-bottom: 30px;
+}
+.pre__item{
+    margin-bottom: 60px;
+}
+.pre__item-text{
+    font-size: 16px;
+    font-weight: 700;
+    color:#000;
+}
+.prem__column:nth-child(2){
+    position: relative;
+    top:-100px;
+}
+.trends__title{
+    text-align: center;
+    margin-top: 30px;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 40px;
+    margin-bottom: 30px;
+}
+.trends__title span{
+    font-size: 22px;
+}
+.collection__item{
+    margin-top: 100px;
+}
+.collection__item-wrapper{
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    text-align:center;
+}
+.collection__item-title{
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 700;
+    font-size: 24px;
+}
+.advertisement__title{
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-left: 125px;
+    padding-top: 150px;
+}
+.advertisement__text{
+    font-size: 16px;
+    padding-left: 125px;
+}
+.advertisement__content{
+    margin-top: 50px;
+    background:url('../../static/images/adver-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height:600px;
+}
+.advertisement__title-out{
+    display: none;
+}
+.advertisement__text-out{
+    display: none;
+}
+.adver__title{
+    font-size: 32px;
+    font-weight: 700;
+    max-width:350px;
+    text-align: center;
+    margin:100px auto 100px;
+}
+.adver__wrapper img{
+    width:600px;
+}
+.adver__wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.adver__img{
+    margin-right: 30px;
+}
+.adver__content-title{
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 1.25;
+    margin-bottom: 35px;
+}
+.adver__content-text{
+    font-size: 16px;
+    margin-bottom: 40px;
+}
+.adver__content-btn,.brili__btn{
+    background:#000;
+    padding:16px 0;
+    width:290px;
+    text-align: center;
+}
+
+.adver__content-btn:hover,.brili__btn:hover{
+    background: #333;
+}
+.adver__content-btn a, .brili__btn a{
+    color:#fff;
+    font-weight: 500;
+}
+.present__items{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 50px;
+}
+.present__item:first-child{
+    background:url('./../../static/images/pres1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-top: 400px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 200px;
+    color:#fff;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.present__item:last-child{
+    background:url('./../../static/images/pres2.jpg');
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-top: 400px;
+    padding-bottom: 20px;
+    padding-left: 200px;
+    padding-right: 100px;
+    color:#fff;
+    font-weight: 700;
+}
+.present__title, .brili__title{
+    text-align: center;
+    color:#ccc;
+    font-weight: 700;
+    font-size: 50px;
+}
+.brili__title{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.brili__wrapper{
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.brili__wrapper-title{
+    font-size: 50px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    margin-bottom: 30px;
+}
+
+.brili__text{
+    margin-bottom: 30px;
+}
+.present__title{
+    margin-top: 30px;
+}
+.order{
+    background:url('./../../static/images/order-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 600px;
+    margin-top: 50px;
+}
+.order__title{
+    font-weight: 700;
+    font-size: 48px;
+    padding-top: 200px;
+    margin-bottom: 40px;
+}
+.order__text{
+    font-size:20px;
+    font-weight: 500;
+    margin-bottom: 70px;
+}
+.order__about{
+    font-size: 16px;
+    max-width:400px;
+}
+.approch{
+    margin-top: 150px;
+}
+.approach__wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.approach__title{
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 50px;
+}
+.approach__text{
+    font-size: 16px;
+    margin-bottom: 110px;
+}
+.approach__item-1{
+    background:url('./../../static/images/ac1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-top: 40px;
+    padding-left: 40px;
+    padding-bottom:450px;
+    padding-right: 200px;
+}
+.approach__item-1 p, .approach__item-2 p,.approach__item-3 p{
+    color:#fff;
+    background:#000;
+    font-weight: 700;
+    width:152px;
+    padding:10px 0px;
+    text-align: center;
+}
+.approach__item-2{
+    background:url('./../../static/images/ac2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-top: 40px;
+    padding-left: 40px;
+    padding-bottom:300px;
+    padding-right: 250px;
+    margin-bottom: 50px;
+}
+.approach__item-3{
+    background:url('./../../static/images/ac3.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-top: 40px;
+    padding-left: 40px;
+    padding-bottom:300px;
+    padding-right: 250px;
+}
+.approach__left{
+    max-width:50%;
+}
+.advantages__wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.advantages__item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.advantages__title{
+    text-align: center;
+    font-size: 48px;
+    font-weight: 700;
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+.advantages__item img{
+    width:140px;
+}
+.advantages__item-img{
+    margin-right: 40px;
+}
+.advantages__item-content{
+    max-width:430px;
+}
+.advantages__item-title{
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.advantages__item-text{
+    font-weight: 500;
+    letter-spacing:.5px;
+}
+.advantages__wrapper-right{
+    margin-top:80px;
+}
+.clients{
+    text-align:center;
+}
+.clients__title{
+    font-size: 48px;
+    font-weight: 700;
+    margin-top: 150px;
+    margin-bottom: 50px;
+}
+.clients__text{
+    font-size: 16px;
+    max-width:555px;
+    margin: 0 auto;
+    margin-bottom: 150px;
+}
+.banner{
+    background:url('./../../static/images/work-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height:320px;
+    color:#fff;
+}
+.banner__items{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: center;
+    padding-top: 100px;
+    margin: 0 auto;
+}
+.banner__item{
+    width:400px;
+    margin-bottom: 30px;
+}
+.banner__item img{
+    margin-bottom: 50px;
+}
+.form-block{
+    margin-top: 50px;
+}
+.form__wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.form__title{
+    font-weight: 700;
+    font-size: 48px;
+    margin-bottom: 50px;
+}
+.form__text{
+    font-size: 16px;
+    line-height: 34px;
+}
+.form input{
+    padding: 3px 0;
+    outline: none;
+    width: 100%;
+    font-weight: 600;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    margin-top: 30px;
+}
+.form__textarea{
+    margin-top: 30px;
+}
+.form__textarea input{
+    border:1px solid #ccc;
+    margin-top: 0;
+    padding-bottom: 100px;
+    padding-left: 5px;
+}
+.form__wrapper-right img{
+    width:95%;
+}
+.form__btn input{
+    color:#fff;
+    background:#000;
+    height:50px;
+    transition:all 0.5s ease;
+}
+.form__btn input:hover{
+    background-color:#333;
+}
+.delivery__wrapper{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+.delivery__items{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.delivery__item{
+    display:flex;
+    align-items: center;
+}
+.delivery__item img{
+    margin-right: 15px;
+    width:60px;
+}
+.delivery__title{
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 50px;
+}
+.delivery__main{
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+    margin:30px;
+}
+.delivery__main span{
+    color:goldenrod;
+}
+.delivery__text{
+    font-size: 18px;
+}
+.about{
+    text-align: center;
+    margin-top: 50px;
+    padding:20px;
+}
+.about__title{
+    font-weight: 700;
+    font-size: 48px;
+    margin-bottom: 30px;
+}
+.about__text{
+    max-width:80%;
+    margin:0 auto;
+}
+.about__text p {
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+.menu__korzina{
+    display: flex;
+}
+.menu__korzina-img img{
+    width:25px;
+}
+.menu__korzina-counter{
+    font-weight: 700;
+    position: relative;
+    top:-15px;
+    left:-8px;
+    background:gold;
+    border-radius:10px;
+    padding-top:6px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+#like-counter{
+    font-weight: 700;
+    position: relative;
+    top:-10px;
+    left:-8px;
+    background:gold;
+    border-radius:10px;
+    padding-top:4px;
+    padding-bottom:4px;
+    padding-left:6px;
+    padding-right: 6px;
+}
+.cart{
+    position: fixed;
+    background:#eaedee;
+    border-radius: 30px;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    z-index:232342442332;
+    width:70%;
+    margin:0 auto;
+}
+.cart__title{
+    font-weight: 700;
+    font-size:28px;
+    text-align: center;
+    margin:15px 0;
+}
+.cart__item-delete img{
+    width:30px;
+}
+.cart__nav ul{
+    display: grid;
+    grid-template-columns: 40% 15% 15% 15% 15%;
+    border-bottom: 3px dashed #ccc;
+    padding-bottom: 15px;
+}
+.cart__nav li{
+    text-align: center;
+    text-decoration: underline;
+    font-weight: 500;
+}
+.cart__item{
+    display: grid;
+    grid-template-columns: 40% 15% 15% 15% 15%;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+}
+.cart__item-content{
+    text-align: left;
+}
+.cart__item-name-text{
+    margin-bottom: 5px;
+}
+.cart__item-name-material{
+    margin-bottom: 5px;
+    font-weight: 400;
+    color:#333;
+    font-size: 14px;
+}
+.cart__item-name-weight{
+    font-weight: 400;
+    color:#333;
+    font-size: 14px;
+}
+.cart__item-name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cart__item-name img{
+    max-width:100px;
+    border-radius:30px;
+    margin-right: 15px;
+}
+.cart__item-name-text{
+    font-weight: 700;
+}
+.cart__item-number input{
+    max-width:70px;
+    outline: none;
+    border:none;
+    padding:10px 0;
+    background:#fff;
+    border:1px solid #ccc;
+    padding-left:10px;
+    font-size: 16px;
+    text-align: center;
+}
+.cart__item-size select{
+    width:70px;
+    outline: none;
+    border:none;
+    padding:10px 0;
+    background:#fff;
+    border:1px solid #ccc;
+    padding-left: 20px;
+    font-size: 16px;
+}
+.cart__item-price{
+    letter-spacing: 1.2px;
+    font-weight: 700;
+}
+.quantity input {
+    border: none;
+    text-align: center;
+    width: 32px;
+    font-size: 16px;
+    color: #43484D;
+    font-weight: 300;
+    pointer-events: none;
+  }
+
+.quantity button[class*=btn] {
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border:3px solid #ccc;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  .minus-btn img {
+    margin-bottom: 3px;
+  }
+  .plus-btn img {
+    margin-top: 2px;
+  }
+
+  button:focus,
+  input:focus {
+    outline:0;
+  }
+.cart__items{
+    border-bottom:3px solid #ccc;
+    padding-bottom:20px;
+}
+.cart__overall{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+    padding-right: 75px;
+    padding-bottom: 12px;
+    border-bottom:3px dashed #ccc;
+    font-weight: 700;
+}
+.cart__overall-money{
+    margin-left: 30px;
+}
+.cart__form-wrapper{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+.cart__form input{
+    width:370px;
+    outline: none;
+    border: 3px solid #ccc;
+    padding:10px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+.cart__form-btn{
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.cart__form-btn button{
+    padding:10px 30px;
+    outline: none;
+    border:3px solid #ccc;
+    border-radius: 12px;
+    background:#fff;
+    color:#000;
+    font-weight:400;
+    transition: all 0.3s ease;
+}
+.cart__form-btn button:hover{
+    background:#ccc;
+    font-weight: 700;
+}
+.cart{
+    display: none;
+}
+.modal{
+    max-width:100%;
+    z-index:324234234;
+    padding:0;
+    overflow:auto;
+}
+.modal a.close-modal{
+    position: absolute;
+    right:20px;
+    top:10px;
+}
+.cart__item-name{
+    max-width:80%;
+    margin:0 auto;
+}
+.counter-show{
+    background:white;
+    max-width:20px;
+    margin:3px auto;
+    padding:5px 0;
+}
+.counter-show p{
+    background:white;
+    max-width:20px;
+    padding:5px 0;
+    margin:0 auto;
+    font-weight: 700;
+    text-align: center;
+    margin:3px 0;
+    border-radius:5px;
+}
+.cart__form-order{
+    display:none;
+}
+.cart__item-size{
+    font-weight: 700;
+    font-size: 16px;
+}
+.our-carts{
+    display: none;
+}
+
+.menu__korzina-like img{
+    width:25px;
+}
+.menu__korzina-like{
+    display: flex;
+    margin-right: 10px;
+}
+.jewellery__item-favoutite img{
+    width:25px;
+}
+.jewellery__item-favoutite{
+    opacity: 0;
+    float: right;
+    padding-top: 5px;
+    padding-right:5px;
+}
+.favorite__title{
+    text-align: center;
+    margin:30px 0;
+    font-weight: 700;
+    font-size: 36px;
+}
+.favorite__items{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.favorite__items .jewellery__item{
+    margin-right: 30px;
+}
+.favorite__items-empty{
+    font-size: 18px;
+}
+.menu__login{
+    margin-right:25px;
+    font-weight: 700;
+}
+.menu__login img{
+    width:25px;
+}
+.form-box{
+    width:380px;
+    height: 480px;
+    position: relative;
+    margin: 6% auto;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding:5px;
+}
+.button-box{
+    margin:35px auto;
+    position: relative;
+    box-shadow: 0 0 20px 9px #ff61241f;
+    border-radius: 30px;
+    display:flex;
+    justify-content: space-around;
+}
+.toggle-btn{
+    padding:10px 30px;
+    cursor:pointer;
+    background:transparent;
+    border:0;
+    outline: none;
+    position: relative;
+    font-weight:500;
+    text-decoration: underline;
+    text-align: center;
+    margin:0 auto;
+    font-family: 'Montserrat', sans-serif;
+    margin-left: 38px;
+}
+#btn{
+    top:0;
+    left:0;
+    position: absolute;
+    width:50%;
+    height:100%;
+    background:linear-gradient(to right, #ff105f, #ffad06);
+    border-radius:30px;
+    transition:.5s;
+}
+.input-group{
+    top:330px;
+    position: absolute;
+    width:280px;
+    left:50%;
+    transform: translate(-50%, 0);
+    margin:0 auto;
+    transition: .5s;
+}
+.login .form-box{
+    height: 350px;
+}
+.input-field{
+    width:100%;
+    padding:10px 0;
+    margin: 5px 0;
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 1px solid #999;
+    outline: none;
+    background: transparent;
+}
+.submit-btn{
+    width:85%;
+    padding:10px 30px;
+    cursor: pointer;
+    text-align: center;
+    background:linear-gradient(to right, #ff105f, #ffad06);
+    border:0;
+    outline: none;
+    position: relative;
+    left:50%;
+    transform: translate(-50%, 0);
+    border-radius: 30px;
+    border-top-left-radius: 30px!important;
+    border-bottom-left-radius: 30px!important;
+}
+.check-box{
+    margin:30px 10px 30px auto;
+    position: relative;
+    left:30%;
+    transform: translate(-50%, 0);
+}
+.input-group span{
+    color:#777;
+    font-size: 12px;
+    position: relative;
+    top:31px;
+    left:50%;
+    transform: translate(-50%, 0);
+}
+.register #btn {
+    top:0;
+    left:50%;
+    position: absolute;
+    width:50%;
+    height:100%;
+    background:linear-gradient(to right, #ff105f, #ffad06);
+    border-radius:30px;
+    transition:.5s;
+}
+.register .register-btn{
+    margin-left: 50px;
+}
+.alert{
+    margin-top: 30px;
+}
+.menu__socials{
+    display: flex;
+}
+.menu__login img{
+    margin-left: 10px;
+}
+.kazakh__wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 100px;
+}
+.kazakh__wrapper-right{
+    margin-left: 50px;
+    max-width:400px;
+    margin:0 auto;
+}
+.kazakh__wrapper-title{
+    font-size: 50px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+.kazakh__wrapper-text{
+    font-size: 22px;
+    line-height: 30px;
+    font-family: 'Playfair Display', serif;
+}
+.moments{
+    background:url('./../../static/images/about-bg2.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height:100vh;
+    color:#fff;
+}
+.moments__title{
+    font-size: 46px;
+    padding-top: 180px;
+    font-weight: 700;
+    margin-bottom: 70px;
+}
+.moments__text{
+    max-width:450px;
+    line-height:28px;
+    font-size: 22px;
+    font-weight: 500;
+    font-family: 'Playfair Display', serif;
+}
+.kazakh__wrapper-left img{
+    width:500px;
+}
+.service__wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.service__title{
+    font-size:50px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+.service__wrapper-left{
+    max-width:400px;
+}
+.service__text{
+    font-size: 22px;
+    line-height: 28px;
+    font-family: 'Playfair Display', serif;
+}
+.ukra{
+    background:url('./../../static/images/about4.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height:100vh;
+    color:#fff;
+}
+.ukra__title{
+    font-size: 50px;
+    font-weight: 700;
+    padding-top: 120px;
+    float: right;
+    margin-right: 140px;
+}
+.ukra__text{
+    font-size: 22px;
+    max-width:500px;
+    padding-top: 350px;
+    margin-left: 600px;
+    text-align: right;
+    font-family: 'Playfair Display', serif;
+}
+        </style>
+    </head>
+    <body id="body" class="body">
+        <section class="cart" id="ex1">
+            <div class="cart__title" id="cart__title">
+                Корзина
+            </div>
+            <div class="cart__nav">
+                <ul>
+                    <li>Товар</li>
+                    <li>Цена</li>
+                    <li>Сезон</li>
+                    <li>Размер</li>
+                    <li>Удалить</li>
+                </ul>
+            </div>
+            <div class="cart__items" id="cart__items">
+            </div>
+                <div class="cart__overall">
+                    <div class="cart__overall-count" id="cart__overall-count">
+                        Всего товаров: 0
+                    </div>
+                    <div class="cart__overall-money" id="cart__overall-money">
+                        Сумма покупки: 0 тг
+                    </div>
+                </div>
+                {{msg}}
+                <form class="cart__form" id="order-form" action="send" method="POST">
+                    <div class="cart__form-wrapper">
+                        <div class="cart__form-name">
+                            <input type="text" placeholder="Введите имя" name="client__name" required>
+                        </div>
+                        <div class="cart__form-phone">
+                            <input type="text" placeholder="Введите телефон" name="client__phone" required>
+                        </div>
+                        <div class="cart__form-order">
+                            <input type="text" id="cart__form-order-input" placeholder="Введите телефон" name="client__order">
+                        </div>
+                    </div>
+                    <div class="cart__form-btn">
+                        <button type="submit" id="order-btn">Сделать заказ</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <div class="our-carts" id="our-carts"></div>
+        <header class="header">
+            <div class="container">
+                <div class="header__wrapper">
+                    <div class="header__wrapper-left">
+                        <div class="header__location">
+                            <div class="header__location-img">
+                                <img src="../static/images/maps-and-flags.svg" alt="">
+                            </div>
+                            <div class="header__location-text">
+                                <p>АЛМАТЫ</p>
+                            </div>
+                        </div>
+                        <div class="header__phone">
+                            <p>+ 7 (771) 395 1015</p>
+                        </div>
+                    </div>
+                    <div class="header__nav">
+                        <ul>
+                            <li><a href="/order">ОДЕЖДА НА ЗАКАЗ</a></li>
+                            <li><a href="/delivery">ДОСТАВКА И ОПЛАТА</a></li>
+                            <li><a href="/about">Z / Q</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section class="menu">
+            <div class="container">
+                <nav class="burger__nav">
+                    <ul class="menu burger__menu">
+                        <li><a href="/jewellery" class="menu__item">НОВИНКИ</a></li>
+                        <li><a href="/brilliant" class="menu__item">ОДЕЖДА</a></li>
+                        <li><a href="/wedding" class="menu__item">ОБУВЬ</a></li>
+                        <li><a href="/premium" class="menu__item">АККСЕССУАРЫ</a></li>
+                        <li><a href="/collection" class="menu__item">БРЕНДЫ</a></li>
+                        <li><a href="/present" class="menu__item">PREMIUM</a></li>
+                        <li><a href="/order" class="menu__item">СПОРТ</a></li>
+                        <li><a href="/delivery" class="menu__item">КРАСОТА</a></li>
+                        <li><a href="/about" class="menu__item">MADE IN KZ</a></li>
+                    </ul>
+                </nav>
+                <div class="menu__wrapper">
+                    <div class="menu__img">
+                        <a href="/"><img src="../static/images/logo3.png" alt=""></a>
+                    </div>
+                    <div class="menu__socials">
+                    <div class="menu__korzina-like">
+                        <div class="menu__korzina-like-img">
+                            <a href="/favorite"><img src="../static/images/heart.png" alt=""></a>
+                        </div>
+                        <div class="menu__korzina-like-counter">
+                        <span id="like-counter">0</span>
+                        </div>
+                    </div>
+                    <div class="menu__korzina">
+                        <div class="menu__korzina-img">
+                            <a href="#ex1" rel="modal:open"><img class="cartImg" src="../static/images/shopping-cart.svg" alt=""></a>
+                        </div>
+                        <div class="menu__korzina-counter">
+                            <span id="counter">0</span>
+                        </div>
+                    </div>
+                    <div class="menu__login">
+                        <a href="/login">
+                        <img src="../static/images/account.png" alt="">
+                        </a>
+                    </div>
+                    </div>
+                </div>
+                <div class="menu-burger__header" id="second">
+                    <span></span>
+                </div>  
+                <div class="menu__nav">
+                    <div class="menu__nav-input">
+                        <img src="../static/images/search.svg" alt="">
+                        <input type="text" id="search" placeholder="ПОИСК" onchange="listBrends()">
+                        <div>
+                            <ul id="list__brends" class="list__brends"></ul>
+                        </div>
+                    </div>
+                    <ul class="nav">
+                        <li class="menu-item" onmouseover=dropMenu(this) onmouseout=hideMenu(this)>
+                            <a class="menu-item-a" href="/jewellery">НОВИНКИ</a>
+                            <ul class="submenu">
+                                <li>
+                                    <a href="/jewellery">Блузы и рубашки</a>
+                                </li>
+                                <li>
+                                    <a href="/jewellery">Брюки</a>
+                                </li>
+                                <li>
+                                    <a href="/jewellery">Верхняя одежда</a>
+                                </li>
+                                <li>
+                                    <a href="/jewellery">Джемперы</a>
+                                </li>
+                                <li>
+                                    <a href="/jewellery">Джинсы</a>
+                                </li>
+                                <li>
+                                    <a href="/jewellery">Платья</a>
+                                </li>
+                                <li>
+                                    <a href="/jewellery">Толстовки</a>
+                                </li>
+                                <li>
+                                    <a href="/jewellery">Юбки</a>
+                                </li>
+                                <li>
+                                    <a href="/jewellery">Футболки   </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="menu-item" onmouseover=dropMenu(this) onmouseout=hideMenu(this)>
+                            <a class="menu-item-a" href="/brilliant">ОДЕЖДА</a>
+                            <ul class="submenu">
+                            <li>
+                                    <a href="/brilliant">Блузы и рубашки</a>
+                                </li>
+                                <li>
+                                    <a href="/brilliant">Брюки</a>
+                                </li>
+                                <li>
+                                    <a href="/brilliant">Верхняя одежда</a>
+                                </li>
+                                <li>
+                                    <a href="/brilliant">Джемперы</a>
+                                </li>
+                                <li>
+                                    <a href="/brilliant">Джинсы</a>
+                                </li>
+                                <li>
+                                    <a href="/brilliant">Платья</a>
+                                </li>
+                                <li>
+                                    <a href="/brilliant">Толстовки</a>
+                                </li>
+                                <li>
+                                    <a href="/brilliant">Юбки</a>
+                                </li>
+                                <li>
+                                    <a href="/brilliant">Футболки</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="menu-item" onmouseover=dropMenu(this) onmouseout=hideMenu(this)>
+                            <a class="menu-item-a" href="/wedding">ОБУВЬ</a>
+                            <ul class="submenu">    
+                                <li>
+                                    Балетки
+                                </li>
+                                <li>
+                                    Босоножки
+                                </li>
+                                <li>
+                                    Ботильоны
+                                </li>
+                                <li>
+                                    Ботинки
+                                </li>
+                                <li>
+                                    Ботфорты
+                                </li>
+                                <li>
+                                    Дутики
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="menu-item">
+                            <a href="/premium">PREMIUM</a>
+                        </li>
+                        <li class="menu-item" onmouseover=dropMenu(this) onmouseout=hideMenu(this)>
+                            <a class="menu-item-a"  href="/collection">АККСЕССУАРЫ</a>
+                            <ul class="submenu">
+                                <li>
+                                    Головные уборы
+                                </li>
+                                <li>
+                                    Зонты
+                                </li>
+                                <li>
+                                    Рюкзаки
+                                </li>
+                                <li>
+                                    Сумки
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="menu-item">
+                            <a href="/present">БРЕНДЫ</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="carousel">
+            <div class="container">
+            <div class="slider">
+                <div class="slider__item">
+                    <img src="../static/images/nursat2.webp" alt="">
+                </div>
+                <div class="slider__item">
+                    <img src="../static/images/nursat3.jpg" alt="">
+                </div>
+                <div class="slider__item">
+                    <img src="../static/images/nursat.webp" alt="">
+                </div>
+                </div>
+            </div>
+        </section>
+        <section class="actual">
+            <div class="container">
+                <div class="actual__titles">
+                    <div class="actual__title jew__title active"  onclick="jew()">
+                        <p>ОДЕЖДА</p>
+                    </div>
+                    <div class="actual__title bril__title" onclick="bril()">
+                        <p>ОБУВЬ</p>
+                    </div>
+                    <div class="actual__title wed__title" onclick="wed()">
+                        <p>АККСЕССУАРЫ</p>
+                    </div>  
+                </div>
+                    <div class="actual__slider" id="jew">
+                        <div class="actual__slider-item">
+                            <a href="/jewellery">
+                                <div class="actual__slider-item-img">
+                                    <img src="../static/images/ac11.jpg" alt="" id="actualImg1">
+                                </div>
+                                <div class="actual__slider-item-text">
+                                    <p id="actualText1">SBD</p></a>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="actual__slider-item">
+                            <a href="/jewellery">
+                            <div class="actual__slider-item-img">
+                                <img src="../static/images/ac21.jpg" alt="" id="actualImg2">
+                            </div>
+                            <div class="actual__slider-item-text">
+                                <p id="actualText2">SBD</p>
+                            </div>
+                            </a>
+                        </div>
+                        <div class="actual__slider-item">
+                            <a href="/jewellery">
+                                <div class="actual__slider-item-img">
+                                    <img src="../static/images/ac31.jpg" alt="" id="actualImg3">
+                                </div>
+                                <div class="actual__slider-item-text">
+                                    <p id="actualText3">VISITOR</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="actual__slider-item">
+                            <a href="/jewellery">
+                            <div class="actual__slider-item-img">
+                                <img src="../static/images/ac41.jpg" alt="" id="actualImg4">
+                            </div>
+                            <div class="actual__slider-item-text">
+                                <p id="actualText4">Na'Vi</p>
+                            </div>
+                            </a>
+                        </div>
+                        <div class="actual__slider-item">
+                            <a href="/jewellery">
+                            <div class="actual__slider-item-img">
+                                <img src="../static/images/ac51.jpg" alt="" id="actualImg5">
+                            </div>
+                            <div class="actual__slider-item-text">
+                                <p id="actualText5">Sitka Gear</p>
+                            </div>
+                            </a>
+                        </div>
+                        <div class="actual__slider-item">
+                            <a href="/jewellery">
+                            <div class="actual__slider-item-img">
+                                <img src="../static/images/ac61.jpg" alt="" id="actualImg6">
+                            </div>
+                            <div class="actual__slider-item-text">
+                                <p id="actualText6">Stefano Ricci</p>
+                            </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="actual__slider" id="bril">
+                        <div class="actual__slider-item">
+                            <a href="/brilliant">
+                            <div class="actual__slider-item-img">
+                                <img src="../static/images/br11.jpg" alt="" id="actualImg1">
+                            </div>
+                            </a>
+                        </div>
+                        <div class="actual__slider-item">
+                            <a href="/brilliant">
+                            <div class="actual__slider-item-img">
+                                <img src="../static/images/br11.jpg" alt="" id="actualImg2">
+                            </div>
+                            </a>
+                        </div>
+                        <div class="actual__slider-item">
+                            <a href="/brilliant">
+                            <div class="actual__slider-item-img">
+                                <img src="../static/images/br11.jpg" alt="" id="actualImg3">
+                            </div>
+                            </a>
+                        </div>
+                        <div class="actual__slider-item">
+                            <a href="/brilliant">
+                            <div class="actual__slider-item-img">
+                                <img src="../static/images/br11.jpg" alt="" id="actualImg4">
+                            </div>
+                            </a>
+                        </div>
+                        <div class="actual__slider-item">
+                            <a href="/brilliant">
+                            <div class="actual__slider-item-img">
+                                <img src="../static/images/br11.jpg" alt="" id="actualImg5">
+                            </div>
+                            </a>
+                        </div>
+                        <div class="actual__slider-item">
+                            <a href="/brilliant">
+                            <div class="actual__slider-item-img">
+                                <img src="../static/images/br11.jpg" alt="" id="actualImg6">
+                            </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="actual__slider" id="wed">
+                        <div class="actual__slider-item">
+                            <a href="/wedding">
+                            <div class="actual__slider-item-img">
+                                <img src="../static/images/ac11.jpg" alt="" id="actualImg1">
+                            </div>
+                            </a>
+                        </div>
+                        <div class="actual__slider-item">
+                            <a href="/wedding">
+                            <div class="actual__slider-item-img">
+                                <img src="../static/images/ac21.jpg" alt="" id="actualImg2">
+                            </div>
+                        
+                            </a>
+                        </div>
+                        <div class="actual__slider-item">
+                            <a href="/wedding">
+                            <div class="actual__slider-item-img">
+                                <img src="../static/images/ac31.jpg" alt="" id="actualImg3">
+                            </div>
+                            
+                            </a>
+                        </div>
+                        <div class="actual__slider-item">
+                            <a href="/wedding">
+                            <div class="actual__slider-item-img">
+                                <img src="../static/images/ac41.jpg" alt="" id="actualImg4">
+                            </div>
+                        
+                            </a>
+                        </div>
+                        <div class="actual__slider-item">
+                            <a href="/wedding">
+                            <div class="actual__slider-item-img">
+                                <img src="../static/images/ac51.jpg" alt="" id="actualImg5">
+                            </div>
+                        
+                            </a>
+                        </div>
+                        <div class="actual__slider-item">
+                            <a href="/wedding">
+                            <div class="actual__slider-item-img">
+                                <img src="../static/images/ac61.jpg" alt="" id="actualImg6">
+                            </div>
+                        
+                            </a>
+                        </div>
+                    </div>
+                </div>
+        </section>
+        <section class="collection">
+            <div class="container">
+                <div class="collection__title">
+                    <h2>КОЛЛЕКЦИИ</h2>
+                </div>
+                <div class="collection__text">
+                    <p>С каждым ювелирным изделием в твоей шкатулке связана особая история. Все эти ускользающие мгновения, которые хочется сохранить навсегда, — в одеждах Z/Q. Это то, что в твоём сердце.</p>
+                </div>
+                <div class="collections__items">
+                    <div class="collections__item">
+                        <a href="/collection"><img src="../static/images/ac11.jpg" data-bs-toggle="tooltip" data-bs-html="true" title="<em>Коллекция</em><br>Новая коллекция"/></a>
+                    </div>
+                    <div class="collections__item">
+                        <a href="/collection"><img src="../static/images/ac21.jpg" data-bs-toggle="tooltip" data-bs-html="true" title="<em>Коллекция</em><br>Новая коллекция"/></a>
+                    </div>
+                    <div class="collections__item">
+                        <a href="/collection"><img src="../static/images/ac31.jpg" data-bs-toggle="tooltip" data-bs-html="true" title="<em>Коллекция</em><br>Новая коллекция"/></a>
+                    </div>
+                    <div class="collections__item">
+                        <a href="/collection"><img src="../static/images/ac41.jpg" data-bs-toggle="tooltip" data-bs-html="true" title="<em>Коллекция</em><br>Новая коллекция"/></a>
+                    </div>
+                    <div class="collections__item">
+                        <a href="/collection"><img src="../static/images/ac51.jpg" data-bs-toggle="tooltip" data-bs-html="true" title="<em>Коллекция</em><br>Новая коллекция"/></a>
+                    </div>
+                    <div class="collections__item">
+                        <a href="/collection"><img src="../static/images/ac61.jpg" data-bs-toggle="tooltip" data-bs-html="true" title="<em>Коллекция</em><br>Новая коллекция"/></a>
+                    </div>
+                </div>
+                <div class="collections__all">
+                    <p>Все коллекции</p>
+                </div>
+            </div>
+        </section>
+        <section class="best">
+            <div class="container">
+                <div class="best__title">
+                    <p>БЕСТСЕЛЛЕРЫ</p>
+                </div>
+                <div class="best__slider">
+                    <div class="best__slider-item">
+                        <div class="actual__slider-item-img">
+                            <img src="../static/images/best11.jpg" alt="">
+                        </div>
+                        <div class="actual__slider-item-text">
+                            <p>19000 тг</p>
+                        </div>
+                    </div>
+                    <div class="best__slider-item">
+                        <div class="actual__slider-item-img">
+                            <img src="../static/images/best11.jpg" alt="">
+                        </div>
+                        <div class="actual__slider-item-text">
+                            <p>19000 тг</p>
+                        </div>
+                    </div>
+                    <div class="best__slider-item">
+                        <div class="actual__slider-item-img">
+                            <img src="../static/images/best11.jpg" alt="">
+                        </div>
+                        <div class="actual__slider-item-text">
+                            <p>19000 тг</p>
+                        </div>
+                    </div>
+                    <div class="best__slider-item">
+                        <div class="actual__slider-item-img">
+                            <img src="../static/images/best11.jpg" alt="">
+                        </div>
+                        <div class="actual__slider-item-text">
+                            <p>19000 тг</p>
+                        </div>
+                    </div>
+                    <div class="best__slider-item">
+                        <div class="actual__slider-item-img">
+                            <img src="../static/images/best11.jpg"  alt="">
+                        </div>
+                        <div class="actual__slider-item-text">
+                            <p>19000 тг</p>
+                        </div>
+                    </div>
+                    <div class="best__slider-item">
+                        <div class="actual__slider-item-img">
+                            <img src="../static/images/best11.jpg" alt="">
+                        </div>
+                        <div class="actual__slider-item-text">
+                            <p>19000 тг</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="all">
+            <div class="container">
+                <div class="all__columns">
+                    <div class="all__column">
+                        <div class="all__column__title">
+                            <a href="/about">Z / Q LIFE</a>
+                        </div>
+                        <div class="all__column-text">
+                            <a href="/about">О бренде</a>
+                        </div>
+                        <div class="all__column-text">
+                            <a href="/about">Качество</a>
+                        </div>
+                        <div class="all__column-text">
+                            <a href="/about">Дизайн</a>
+                        </div>
+                        <div class="all__column-text">
+                            <a href="/about">Контакты</a>
+                        </div>
+                    </div>
+                    <div class="all__column">
+                        <div class="all__column__title">
+                            <a href="/jewellery">Одежда</a>
+                        </div>
+                        <div class="all__column-text">
+                            <a href="/present">Обувь</a>
+                        </div>
+                        <div class="all__column-text">
+                            <a href="/jewellery">Аксессуары</a>
+                        </div>
+                        <div class="all__column-text">
+                            <a href="/jewellery">Бренды</a>
+                        </div>
+                        <div class="all__column-text">
+                            <a href="/jewellery">PREMIUM</a>
+                        </div>
+                        <div class="all__column-text">
+                            <a href="/jewellery">Спорт</a>
+                        </div>
+                        <div class="all__column-text">
+                            <a href="/jewellery">Красота</a>
+                        </div>
+                        <div class="all__column-text">
+                            <a href="/jewellery">Дом</a>
+                        </div>
+                        <div class="all__column-text">
+                            <a href="/jewellery">MADE IN KZ</a>
+                        </div>
+                    </div>
+                    <div class="all__column">
+                        <div class="all__column__title">
+                            <a href="/delivery">ИНФОРМАЦИЯ</a>
+                        </div>
+                        <div class="all__column-text">
+                            <a href="/delivery">Доставка и оплата</a>
+                        </div>
+                    </div>
+                    <div class="all__column">
+                        <div class="all__column__title">
+                            <a href="/about">ПАРТНЁРАМ</a>
+                        </div>
+                        <div class="all__column-text">
+                            <a href="/about">Сотрудничать</a>
+                        </div>
+                        <div class="all__column-text">
+                            <a href="/about">Команда Z / Q</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer__wrapper">
+                    <div class="footer_c">
+                        <div class="footer__phone">
+                        <a href="tel:877139510105"><p>+ 7 (771) 395 1015</p></a>
+                        </div>
+                        <div class="footer__co">
+                            <div class="footer__co-img">
+                                <img src="../static/images/copyright.svg" alt="">
+                            </div>
+                            <div class="footer__co-text">
+                                2020 Z / Q
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer__socials">
+                        <div class="footer__social-insta">
+                            <a href="https://www.instagram.com/diamondo_kz/"><img src="../static/images/instagram.svg" alt=""></a>
+                        </div>
+                        <div class="footer__social-whats">
+                            <a href="https://api.whatsapp.com/send?phone=77713951015"><img src="../static/images/whatsapp.svg" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="{% static 'js/slick.min.js' %}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+        <script src="{% static 'js/main.js' %}"></script>
+        <script>
+            $('.slider').slick({
+    dots:true
+});
+if($(window).width() < 767) {
+    $('.actual__slider').slick({
+        infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1
+    });
+}
+else{
+    $('.actual__slider').slick({
+        infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1
+    });
+}
+if($(window).width() < 767) {
+    $('.best__slider').slick({
+        infinite: true,
+      slidesToShow: 1,
+      slidesToScroll:1
+    });
+}
+else{
+    $('.best__slider').slick({
+        infinite: true,
+      slidesToShow: 3,
+      slidesToScroll:3,
+    });
+}
+
+
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
+})
+
+function change(e){
+    e.src = "../static/images/best21.jpg";
+}
+function ret(e){
+    e.src = "../static/images/best11.jpg";
+}
+
+function dropMenu(e){
+    var menu = e.getElementsByClassName('submenu')[0];
+    menu.style.overflow="visible";
+    menu.style.opacity="1";
+    menu.style.height="100%";
+}
+function hideMenu(e){
+    var menu = e.getElementsByClassName('submenu')[0];
+    menu.style.overflow="hidden";
+    menu.style.opacity="0";
+    menu.style.height="0";
+}
+
+
+$(document).ready(function() {
+    $('.menu-burger__header').click(function(){
+        $('.menu-burger__header').toggleClass('open-menu');
+        $('.burger__nav').toggleClass('open-menu');
+        $('body').toggleClass('fixed-page');
+    });
+});
+function jew(){
+    document.getElementById('jew').style.opacity="1";
+    document.getElementById('jew').style.height="100%";
+    document.getElementById('wed').style.opacity="0";
+    document.getElementById('wed').style.height="0";
+    document.getElementById('bril').style.opacity="0";
+    document.getElementById('bril').style.height="0";
+    $('.bril__title').removeClass("active");
+    $('.jew__title').toggleClass("active");
+    $('.wed__title').removeClass("active");
+}
+function bril(){
+    document.getElementById('bril').style.opacity="1";
+    document.getElementById('bril').style.height="100%";
+    document.getElementById('wed').style.opacity="0";
+    document.getElementById('wed').style.height="0";
+    document.getElementById('jew').style.opacity="0";
+    document.getElementById('jew').style.height="0";
+    $('.bril__title').toggleClass("active");
+    $('.jew__title').removeClass("active");
+    $('.wed__title').removeClass("active");
+
+}
+function wed(){
+    document.getElementById('wed').style.opacity="1";
+    document.getElementById('wed').style.height="100%";
+    document.getElementById('bril').style.opacity="0";
+    document.getElementById('bril').style.height="0";
+    document.getElementById('jew').style.opacity="0";
+    document.getElementById('jew').style.height="0";
+    $('.bril__title').removeClass("active");
+    $('.jew__title').removeClass("active");
+    $('.wed__title').toggleClass("active");
+}
+
+$('[data-open-block').on('click', function() {
+	const activeCls = 'is-active';
+  	$('[data-content]').removeClass(activeCls);
+  $(`[data-content="${$(this).data('open-block')}"`).addClass(activeCls);
+});
+
+function black(e){
+    $('.jewellery__nav-item').removeClass('active');
+    $(e).toggleClass('active');
+}
+
+const cart = document.querySelector('.cart');
+const cartCounter = document.querySelector('.menu__korzina-counter');
+const favoriteDOM = document.querySelector('.favorite__items');
+const cartInnerCounter = document.querySelector('.cart__overall-count');
+const cartOverallCost = document.querySelector('.cart__overall-money');
+const cartItems = document.querySelector('.cart__items');
+const jewelleryRingsDOM = document.querySelector('#rings__items');
+const jewelleryEarringsDOM = document.querySelector('#earrings__items');
+const jewelleryChainsDOM = document.querySelector("#chains__items");
+const jewelleryPendantsDOM = document.querySelector("#pendants__items");
+const jewelleryBraceletsDOM = document.querySelector("#bracelets__items");
+const jewelleryNecklaceDOM = document.querySelector("#necklace__items");
+const jewelleryBroochesDOM = document.querySelector("#brooches__items");
+const jewelleryTablewareDOM = document.querySelector("#tableware__items");
+const jewelleryOtherDOM = document.querySelector("#other__items");
+const brilliantRingsDOM = document.querySelector("#brilliantRings__items");
+const brilliantEarringsDOM = document.querySelector("#brilliantEarrings__items");
+const brilliantPendantsDOM = document.querySelector("#brilliantPendants__items");
+const brilliantBraceletsDOM = document.querySelector("#brilliantBracelets__items");
+const brilliantNecklaceDOM = document.querySelector("#brilliantNecklace__items");
+const brilliantBroochesDOM = document.querySelector("#brilliantBrooches__items");
+const weddingRingsDOM = document.querySelector("#weddingRings__items");
+const weddingRings2DOM = document.querySelector("#weddingRings2__items");
+const weddingBrideDOM = document.querySelector("#weddingBride__items");
+const weddingGroomDOM = document.querySelector("#weddingGroom__items");
+const weddingPresentsDOM = document.querySelector("#weddingPresents__items");
+const weddingCollectinosDOM = document.querySelector("#wedCollection__items");
+const indexFile = document.querySelector("#our-carts");
+let boughtCart = [];
+let favouriteCart=[];
+let buttonsDOM = [];
+let favouriteDOM = [];
+class Products{
+    async getProducts(){
+        try{
+            let result = await fetch('json/products.json');
+            let data = await result.json();
+            let products = data;
+            return products;
+        }catch (error){
+            console.log(error);
+        }
+    }
+}
+
+class UI{
+    displayProducts(products,sou){
+        if (sou === favoriteDOM){
+            let result = '';
+        for (let i = 0; i < products.length; i++){
+            let info = products[i].fields;
+            let id = products[i].sys;
+            result +=
+
+        `   <div class="jewellery__item" data-id = ${id.id}>
+            <div class="jewellery__item-favoutite">
+            <img class="jewellery__item-favourite-img" src="../static/images/redHeart.png" alt="" onclick="removeFavorite(this)" data-id= ${id.id}>
+            </div>
+            <div class="jewellery__item-img">
+                <img src=${info.image} alt="">
+            </div>
+            <div class="jewellery__item-cost">
+                <p>${info.price} ₸</p>
+            </div>
+            <div class="jewellery__item-drop">
+                <div class="jewellery__item-name">
+                    ${info.title}
+                </div>
+                <div class="jewellery__about">
+                    <div class="jewellery__about-material"  data-bs-toggle="tooltip" data-bs-html="true" title="${info.material}">
+                        МАТЕРИАЛ
+                    </div>
+                   <div class="jewellery__about-weight"  data-bs-toggle="tooltip" data-bs-html="true" title="${info.weight}">
+                       ВЕС
+                   </div>
+                </div>
+                <div class="jewellery__item-select">
+                    <p>Размер:</p>
+                    <select class="jewellery__item-select-select" data-id=${id.id}>
+                        <option value="${info.size.a}">${info.size.a}</option>
+                        <option value="${info.size.b}">${info.size.b}</option>
+                        <option value="${info.size.c}">${info.size.c}</option>
+                        <option value="${info.size.d}">${info.size.d}</option>
+                    </select>
+                </div>
+                <div class="jewellery__item-btn">
+                    <input type="button" class="jewellery__item-button" value="В КОРЗИНУ" data-id=${id.id}>
+                </div>
+            </div>
+        </div>
+            `
+        };
+        sou.innerHTML = result;
+        document.querySelector('.favorite__items-empty').innerText="";
+        }else{
+        let result = '';
+        let favoriteCart = Storage.getFavorite();
+        let favoriteCartIdArray = [];
+        for (let i = 0; i < favoriteCart.length; i++){
+            favoriteCartIdArray[i] = favoriteCart[i].sys.id;
+        }
+        document.getElementById('like-counter').innerText = favoriteCart.length;
+        for (let i = 0; i < products.length; i++){
+            let info = products[i].fields;
+            let id = products[i].sys;
+            let check = favoriteCartIdArray.indexOf(id.id) != -1;
+        if (check===false){
+            result +=
+
+        `   <div class="jewellery__item" data-id = ${id.id}>
+            <div class="jewellery__item-favoutite">
+            <img class="jewellery__item-favourite-img" src="../static/images/heart.png" alt="" onmouseover=redHeart(this) onmouseout=blackHeart(this) data-id= ${id.id}>
+            </div>
+            <div class="jewellery__item-img">
+                <img src=${info.image} alt="">
+            </div>
+            <div class="jewellery__item-cost">
+                <p>${info.price} ₸</p>
+            </div>
+            <div class="jewellery__item-drop">
+                <div class="jewellery__item-name">
+                    ${info.title}
+                </div>
+                <div class="jewellery__about">
+                    <div class="jewellery__about-material"  data-bs-toggle="tooltip" data-bs-html="true" title="${info.material}">
+                        МАТЕРИАЛ
+                    </div>
+                   <div class="jewellery__about-weight"  data-bs-toggle="tooltip" data-bs-html="true" title="${info.weight}">
+                       ВЕС
+                   </div>
+                </div>
+                <div class="jewellery__item-select">
+                    <p>Размер:</p>
+                    <select class="jewellery__item-select-select" data-id=${id.id}>
+                        <option value="${info.size.a}">${info.size.a}</option>
+                        <option value="${info.size.b}">${info.size.b}</option>
+                        <option value="${info.size.c}">${info.size.c}</option>
+                        <option value="${info.size.d}">${info.size.d}</option>
+                    </select>
+                </div>
+                <div class="jewellery__item-btn">
+                    <input type="button" class="jewellery__item-button" value="В КОРЗИНУ" data-id=${id.id}>
+                </div>
+            </div>
+        </div>
+            `
+        }else{
+        result +=
+
+        `   <div class="jewellery__item" data-id = ${id.id}>
+            <div class="jewellery__item-favoutite">
+            <img class="jewellery__item-favourite-img" src="../static/images/redHeart.png" alt="" data-id= ${id.id}>
+            </div>
+            <div class="jewellery__item-img">
+                <img src=${info.image} alt="">
+            </div>
+            <div class="jewellery__item-cost">
+                <p>${info.price} ₸</p>
+            </div>
+            <div class="jewellery__item-drop">
+                <div class="jewellery__item-name">
+                    ${info.title}
+                </div>
+                <div class="jewellery__about">
+                    <div class="jewellery__about-material"  data-bs-toggle="tooltip" data-bs-html="true" title="${info.material}">
+                        МАТЕРИАЛ
+                    </div>
+                   <div class="jewellery__about-weight"  data-bs-toggle="tooltip" data-bs-html="true" title="${info.weight}">
+                       ВЕС
+                   </div>
+                </div>
+                <div class="jewellery__item-select">
+                    <p>Размер:</p>
+                    <select class="jewellery__item-select-select" data-id=${id.id}>
+                        <option value="${info.size.a}">${info.size.a}</option>
+                        <option value="${info.size.b}">${info.size.b}</option>
+                        <option value="${info.size.c}">${info.size.c}</option>
+                        <option value="${info.size.d}">${info.size.d}</option>
+                    </select>
+                </div>
+                <div class="jewellery__item-btn">
+                    <input type="button" class="jewellery__item-button" value="В КОРЗИНУ" data-id=${id.id}>
+                </div>
+            </div>
+        </div>
+            `
+        };
+    }
+    sou.innerHTML = result;
+    }
+    }
+    getBagButtons(){
+        let buttons = [...document.querySelectorAll(".jewellery__item-button")];
+        buttonsDOM = buttons;
+        buttons.forEach(button => {
+            let id = button.dataset.id;
+            let inCart = boughtCart.find(item => item.sys.id === id);
+            if (inCart){
+                button.value= "Уже в корзине";
+                button.disabled = true;
+            }
+            button.addEventListener('click',(event)=>{
+                event.target.value="Уже в корзине";
+                event.target.disabled = true;
+               let allItems = document.querySelectorAll('.jewellery__item-select-select');
+                let importantItem;
+                allItems.forEach(item => {
+                    if (item.dataset.id === id){
+                        importantItem = item;
+                    }
+                });
+                let allItemsOurSelect = importantItem;
+                let allItemsOurSelectOption = $(allItemsOurSelect).find(":selected").text();
+                let cartItem = {...Storage.getProduct(id),amount:1,selectedOption: allItemsOurSelectOption};
+                boughtCart = [...boughtCart, cartItem];
+                Storage.saveCart(boughtCart);
+                this.setCartValues(boughtCart);
+                this.addCartItem(cartItem);
+                var products = '';
+                var outCart =  Storage.getCart();
+                for (let i = 0; i < outCart.length; i++){
+                    var eachProduct = outCart[i];
+                    products += 'Товар: ' + eachProduct.fields.title + ". ID: " + eachProduct.sys.id + ". Прайс: " + eachProduct.fields.price + ". Размер: " + eachProduct.selectedOption;
+                }
+                products += ". " +document.getElementById('cart__overall-count').innerText;
+                products += ". " +document.getElementById('cart__overall-money').innerText;
+                document.getElementById('cart__form-order-input').value = products;
+            });
+        });
+    }
+    getFavouriteButtons(){
+        let favouriteButtons = [...document.querySelectorAll(".jewellery__item-favourite-img")];
+        favouriteDOM = favouriteButtons;
+        favouriteButtons.forEach(favouriteButton => {
+            let id = favouriteButton.dataset.id;
+            let inCart = favouriteCart.find(item => item.sys.id === id);
+            if (inCart){
+                favouriteButton.src = "../static/images/redHeart.png";
+            }
+            favouriteButton.addEventListener('click',(event)=>{
+                event.target.parentElement.innerHTML = '<img class="jewellery__item-favourite-img" src="../static/images/redHeart.png" alt="" onmouseover="redHeart(this)" data-id="${id.id}">';
+                let favouriteItem = {...Storage.getProduct(id)};
+                let favouriteCart=  Storage.getFavorite();
+                favouriteCart = [...favouriteCart, favouriteItem];
+                document.getElementById('like-counter').innerText = favouriteCart.length;
+                Storage.saveFavorite(favouriteCart);
+            })
+        })
+    }
+    setCartValues(cart){
+        let tempTotal = 0;
+        let itemsTotal = 0;
+        cart.map(item => {
+            tempTotal += item.fields.price * item.amount;
+            itemsTotal += item.amount;
+        });
+        cartOverallCost.innerText = "Сумма покупки: " + parseInt(tempTotal.toFixed(2)) + " тг";
+        cartInnerCounter.innerText = "Всего товаров:  " + itemsTotal;
+        document.getElementById('counter').innerText = itemsTotal;
+    }
+    addCartItem(item){
+        const div = document.createElement('div');
+        div.classList.add('cart__item');
+        div.innerHTML =
+        `
+        <div class="cart__item-name">
+        <div class="cart__item-name-img">
+            <img src="${item.fields.image}" alt="">
+        </div>
+        <div class="cart__item-content">
+            <div class="cart__item-name-text">
+                ${item.fields.title}
+            </div>
+            <div class="cart__item-name-material">
+                Материал: ${item.fields.material}
+            </div>
+            <div class="cart__item-name-weight">
+                Вес:${item.fields.weight}
+            </div>
+        </div>
+    </div>
+    <div class="cart__item-price">
+            ${item.fields.price} тг
+    </div>
+    <div class="quantity">
+        <button class="plus-btn" type="button" name="button">
+          <img class="plus-btn-img" src="../static/images/plus.svg" data-id="${item.sys.id}" alt="" />
+        </button>
+        <p class="counter-show" id="counter-show">${item.amount}</p>
+        <button class="minus-btn" type="button" name="button">
+          <img class="minus-btn-img" src="../static/images/minus.svg" data-id="${item.sys.id}" alt="" />
+        </button>
+      </div>
+    <div class="cart__item-size">
+        <p>${item.selectedOption}</p>
+    </div>
+    <div class="cart__item-delete">
+        <img data-id="${item.sys.id}" class="cart__item-delete-img" src="../static/images/remove.svg" alt="">
+    </div>
+    `;
+    cartItems.appendChild(div);
+    }
+    setupAPP(){
+        boughtCart = Storage.getCart();
+        this.setCartValues(boughtCart);
+        this.populateCart(boughtCart);
+        console.log(Storage.getFavorite());
+    }
+    populateCart(boughtCart){
+        boughtCart.forEach(item => this.addCartItem(item));
+    }
+    cartLogic(){
+        cartItems.addEventListener("click", event => {
+            if (event.target.classList.contains('cart__item-delete-img')){
+                let removeItem = event.target;
+                let id = removeItem.dataset.id;
+                cartItems.removeChild(removeItem.parentElement.parentElement);
+                this.removeItem(id);
+                var products = '';
+                var outCart =  Storage.getCart();
+                for (let i = 0; i < outCart.length; i++){
+                    var eachProduct = outCart[i];
+                    products += '\n Товар: ' + eachProduct.fields.title + ". ID: " + eachProduct.sys.id + ". Прайс: " + eachProduct.fields.price + ". Размер: 18 ";
+                }
+                products += ". " +document.getElementById('cart__overall-count').innerText;
+                products += ". " +document.getElementById('cart__overall-money').innerText;
+                document.getElementById('cart__form-order-input').value = products;
+            }else if (event.target.classList.contains("plus-btn-img")){
+                let addAmount = event.target;
+                let id = addAmount.dataset.id;
+                let tempItem = boughtCart.find(item => item.sys.id === id);
+                tempItem.amount = tempItem.amount + 1;
+                addAmount.parentElement.nextElementSibling.innerText = tempItem.amount;
+                Storage.saveCart(boughtCart);
+                this.setCartValues(boughtCart);
+            }else if (event.target.classList.contains("minus-btn-img")){
+                let lowerAmount = event.target;
+                let id = lowerAmount.dataset.id;
+                let tempItem = boughtCart.find(item => item.sys.id === id);
+                tempItem.amount = tempItem.amount - 1;
+                if (tempItem.amount > 0){
+                    Storage.saveCart(boughtCart);
+                    this.setCartValues(boughtCart);
+                    lowerAmount.parentElement.previousElementSibling.innerText = tempItem.amount;
+                }else{
+                    cartItems.removeChild(lowerAmount.parentElement.parentElement.parentElement);
+                    this.removeItem(id);
+                }
+                Storage.saveCart(boughtCart);
+                this.setCartValues(boughtCart);
+            }
+        })
+    }
+    removeItem(id){
+        boughtCart = boughtCart.filter(item => item.sys.id !== id);
+        this.setCartValues(boughtCart);
+        Storage.saveCart(boughtCart);
+        let button = this.getSingleButton(id);
+        button.value = "В КОРЗИНУ";
+        button.disabled = false;
+    }
+    getSingleButton(id){
+        return buttonsDOM.find(button => button.dataset.id === id);
+    }
+}
+
+class Storage{
+    static saveProducts(products){
+        localStorage.setItem("products", JSON.stringify(products));
+    }
+    static getProduct(id){
+        let products = JSON.parse(localStorage.getItem('products'));
+        //return products.find(product => product.id === id);
+        let myProduct;
+        Object.keys(products).forEach(key => {
+            products[key].find(product => {
+                if (product.sys.id === id){
+                    myProduct = product;
+                }
+            });
+        });
+        return myProduct;
+    }
+    static saveCart(cart){
+        localStorage.setItem("cart", JSON.stringify(cart));
+    }
+    static saveFavorite(favoriteCart){
+        localStorage.setItem("favoriteCart", JSON.stringify(favoriteCart));
+    }
+    static getCart(){
+        return localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : [];
+    }
+    static getFavorite(){
+        return localStorage.getItem("favoriteCart") ? JSON.parse(localStorage.getItem("favoriteCart")) : [];
+    }
+}
+
+document.addEventListener("DOMContentLoaded",()=>{
+    const ui = new UI();
+    const products = new Products();
+    ui.setupAPP();
+    products.getProducts().then(products => {
+        let jewellery__rings = products.jewellery__rings;
+        let jewellery__earrings = products.jewellery__earnings;
+        let jewellery__chains = products.jewellery__chains;
+        let jewellery__pendants = products.jewellery__pendants;
+        let jewellery__bracelets = products.jewellery__bracelets;
+        let jewellery__necklace = products.jewellery__necklace;
+        let jewellery__brooches = products.jewellery__brooches;
+        let jewellery__tableware  = products.jewellery__tableware;
+        let jewellery__other = products.jewellery__other;
+        ui.displayProducts(jewellery__rings,jewelleryRingsDOM);
+        ui.displayProducts(jewellery__earrings,jewelleryEarringsDOM);
+        ui.displayProducts(jewellery__chains,jewelleryChainsDOM);
+        ui.displayProducts(jewellery__pendants,jewelleryPendantsDOM);
+        ui.displayProducts(jewellery__bracelets,jewelleryBraceletsDOM);
+        ui.displayProducts(jewellery__necklace,jewelleryNecklaceDOM);
+        ui.displayProducts(jewellery__brooches,jewelleryBroochesDOM);
+        ui.displayProducts(jewellery__tableware,jewelleryTablewareDOM);
+        ui.displayProducts(jewellery__other,jewelleryOtherDOM);
+        Storage.saveProducts(products);
+    }).then(()=>{
+        ui.getBagButtons();
+        ui.cartLogic();
+        ui.getFavouriteButtons();
+    })
+    products.getProducts().then(products => {
+        let brilliant__rings = products.brilliant__rings;
+        let brilliant__earrings = products.brilliant__earrings;
+        let brilliant__pendants = products.brilliant__pendants;
+        let brilliant__bracelets = products.brilliant__bracelets;
+        let brilliant__necklace = products.brilliant__necklace;
+        let brilliant__brooches = products.brilliant__brooches;
+
+        ui.displayProducts(brilliant__rings,brilliantRingsDOM);
+        ui.displayProducts(brilliant__earrings,brilliantEarringsDOM);
+        ui.displayProducts(brilliant__pendants,brilliantPendantsDOM);
+        ui.displayProducts(brilliant__bracelets,brilliantBraceletsDOM);
+        ui.displayProducts(brilliant__necklace,brilliantNecklaceDOM);
+        ui.displayProducts(brilliant__brooches,brilliantBroochesDOM);
+
+        Storage.saveProducts(products);
+    }).then(()=>{
+        ui.getBagButtons();
+        ui.cartLogic();
+        ui.getFavouriteButtons();
+    })
+
+    products.getProducts().then(products => {
+        let wedding__rings = products.wedding__rings;
+        let wedding__rings2 = products.wedding__rings2;
+        let wedding__bride = products.wedding__bride;
+        let wedding__groom = products.wedding__groom;
+        let wedding__presents = products.wedding__presents;
+        let wedding__collection = products.wedding__collection;
+
+        ui.displayProducts(wedding__rings, weddingRingsDOM);
+        ui.displayProducts(wedding__rings2, weddingRings2DOM);
+        ui.displayProducts(wedding__bride, weddingBrideDOM);
+        ui.displayProducts(wedding__groom, weddingGroomDOM);
+        ui.displayProducts(wedding__presents, weddingPresentsDOM);
+        ui.displayProducts(wedding__collection, weddingCollectinosDOM);
+
+        Storage.saveProducts(products);
+    }).then(()=>{
+        ui.getBagButtons();
+        ui.cartLogic();
+        ui.getFavouriteButtons();
+    })
+    products.getProducts().then(products => {
+        let wedding__rings = products.wedding__rings;
+        ui.displayProducts(wedding__rings, indexFile);
+        Storage.saveProducts(products);
+    }).then(()=>{
+        ui.getBagButtons();
+        ui.cartLogic();
+        ui.getFavouriteButtons();
+    })
+    let favorite = Storage.getFavorite();
+    ui.displayProducts(favorite, favoriteDOM);
+    document.getElementById('like-counter').innerText = favorite.length;
+    ui.getFavouriteButtons();
+});
+
+function redHeart(e){
+    e.src="../static/images/redHeart.png";
+}
+function blackHeart(e){
+    e.src="../static/images/heart.png";
+}
+function removeFavorite(e){
+    let id = e.dataset.id;
+    let favoriteCart = Storage.getFavorite();
+    favoriteCart = favoriteCart.filter(item => item.sys.id !== id);
+    Storage.saveFavorite(favoriteCart);
+    document.getElementById('like-counter').innerText = favoriteCart.length;
+    let result = '';
+    console.log(favoriteCart.length);
+    if (favoriteCart.length > 0){
+    for (let i = 0; i < favoriteCart.length; i++){
+        let info = favoriteCart[i].fields;
+        let id = favoriteCart[i].sys;
+        result +=
+
+    `   <div class="jewellery__item" data-id = ${id.id}>
+        <div class="jewellery__item-favoutite">
+        <img class="jewellery__item-favourite-img" src="../static/images/redHeart.png" alt="" onclick="removeFavorite(this)" data-id= ${id.id}>
+        </div>
+        <div class="jewellery__item-img">
+            <img src=${info.image} alt="">
+        </div>
+        <div class="jewellery__item-cost">
+            <p>${info.price} ₸</p>
+        </div>
+        <div class="jewellery__item-drop">
+            <div class="jewellery__item-name">
+                ${info.title}
+            </div>
+            <div class="jewellery__about">
+                <div class="jewellery__about-material"  data-bs-toggle="tooltip" data-bs-html="true" title="${info.material}">
+                    МАТЕРИАЛ
+                </div>
+               <div class="jewellery__about-weight"  data-bs-toggle="tooltip" data-bs-html="true" title="${info.weight}">
+                   ВЕС
+               </div>
+            </div>
+            <div class="jewellery__item-select">
+                <p>Размер:</p>
+                <select class="jewellery__item-select-select" data-id=${id.id}>
+                    <option value="${info.size.a}">${info.size.a}</option>
+                    <option value="${info.size.b}">${info.size.b}</option>
+                    <option value="${info.size.c}">${info.size.c}</option>
+                    <option value="${info.size.d}">${info.size.d}</option>
+                </select>
+            </div>
+            <div class="jewellery__item-btn">
+                <input type="button" class="jewellery__item-button" value="В КОРЗИНУ" data-id=${id.id}>
+            </div>
+        </div>
+    </div>
+        `
+    };
+    }else{
+        result = "";
+    }
+    favoriteDOM.innerHTML = result;
+}
+        </script>
+    </body>
+    </html>
